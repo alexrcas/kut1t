@@ -1,10 +1,12 @@
 from random import random
-import math
-from util.encoder import toBase62
+from util.encoder import toBase62, fromBase62
+from model.urlDao import saveUrl, get, listUrls
 
 def getShortLink(longUrl):
-    #insertar en BD
-    #index = insert(db, longUrl)
-    # return toBase62(index)
-    index = math.floor(random() * 10000000)
-    return toBase62(index)
+    row = saveUrl(longUrl)
+    return toBase62(row['id'])
+
+
+def getOriginalLink(shortUrl):
+    index = fromBase62(shortUrl)
+    return get(index)
