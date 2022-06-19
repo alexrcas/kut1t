@@ -10,7 +10,7 @@
 
             <textarea class="form-control" rows="4" placeholder="Your URL here..." v-model="url" @keyup="enableButton()" :disabled="textareaDisabled"></textarea>
             <button id="btn-short" class="btn btn-success w-25 mt-2" :disabled="url === '' || !buttonEnabled" @click="short()">
-                Get Short Link
+                Get Short Link <i class="fa-solid fa-scissors ms-2"></i>
             </button>
 
         </div>

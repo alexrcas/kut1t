@@ -43,6 +43,13 @@ compilerOptions: {
 
     copyToClipboard() {
       navigator.clipboard.writeText(this.shortUrl);
+      const notification = new Notyf({
+        position: {
+          x: 'center',
+          y: 'bottom'
+        }
+      });
+      notification.success('Copied to Clipboard!')
     },
 
     enableButton() {
