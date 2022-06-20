@@ -15,4 +15,4 @@ def generateLink():
         return {}, 400
 
     shortUrl = getShortLink(url)
-    return { 'url': f'http://kut.it/{shortUrl}' }, 201
+    return { 'url': f'http://kut.it/{shortUrl}', 'originalUrl': url }, 201
