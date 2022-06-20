@@ -1,4 +1,3 @@
-from random import random
 from util.encoder import toBase62, fromBase62
 from model.urlDao import saveUrl, get
 from service.sanitizerService import processAndSanitize
