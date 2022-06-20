@@ -1,9 +1,12 @@
 from random import random
 from util.encoder import toBase62, fromBase62
-from model.urlDao import saveUrl, get, listUrls
+from model.urlDao import saveUrl, get
+from service.sanitizerService import processAndSanitize
+
 
 def getShortLink(longUrl):
-    row = saveUrl(longUrl)
+    secureUrl = processAndSanitize(longUrl)
+    row = saveUrl(secureUrl)
     return toBase62(row['id'])
 
 
