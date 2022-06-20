@@ -26,7 +26,6 @@ compilerOptions: {
         this.textareaDisabled = true;
         this.isWaiting = true;
         this.error = false;
-        try {
         const response = await fetch('/short', {
             method: 'POST',
             headers: {
@@ -44,10 +43,6 @@ compilerOptions: {
 
         const data = await response.json()
         this.shortUrl = data.url
-
-      } catch(err) {
-        console.log('errorrrr!')
-      }
 
         this.textareaDisabled = false;
         this.isWaiting = false;

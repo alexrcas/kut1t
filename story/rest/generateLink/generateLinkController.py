@@ -8,6 +8,9 @@ generateLinkController = Blueprint('generateLinkController', __name__)
 def generateLink():
     url = request.get_json()['url']
 
+    if url is None:
+        return {}, 400
+
     if not validators.url(url):
         return {}, 400
 
