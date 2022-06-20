@@ -27,6 +27,6 @@ def saveUrl(url):
 
 def get(id):
     conn = get_db_connection()
-    url = conn.execute('SELECT * FROM redirect WHERE id = ?', (id,)).fetchone()
+    url = conn.execute('SELECT * FROM redirect WHERE id = ?', (id,)).fetchall()
     conn.close()
     return url

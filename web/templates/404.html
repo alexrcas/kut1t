@@ -9,11 +9,11 @@
 </head>
 <body class="bg-dark d-flex align-items-center flex-column">
     <h2 class="text-light mt-4">Kut.it!</h2>
-    <h4 class="text-light mt-4">You are being redirected...</h4>
+    <h4 class="text-light mt-4">Oops! We were not able to find that...</h4>
+    <button id="button" class="btn btn-primary mt-2">Create your own short links here!</button>
+
     <script>
-        setTimeout(() => {
-            window.location.replace('{{urlToRedirect}}')
-        }, 2000)
+        document.querySelector('#button').addEventListener('click', () => document.location.assign('/'))
     </script>
 </body>
 </html>
