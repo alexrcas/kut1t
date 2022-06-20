@@ -35,8 +35,12 @@ compilerOptions: {
             })
         })
 
+        try {
         const data = await response.json()
         this.shortUrl = data.url
+        } catch(err) {
+          console.err(err)
+        }
         this.textareaDisabled = false;
         this.isWaiting = false;
     },
