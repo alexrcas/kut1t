@@ -1,5 +1,5 @@
 import validators
-from flask import Blueprint, request, Response
+from flask import Blueprint, request
 from service.linkService import getShortLink
 
 

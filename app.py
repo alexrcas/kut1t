@@ -15,7 +15,6 @@ connection.close()
 
 
 
-
 app = Flask(__name__, template_folder='web/templates',
     static_folder='web/static')
     
