@@ -1,8 +1,15 @@
+from urllib.parse import quote
+
 def processAndSanitize(originalUrl):
-    return checkForProtocol(originalUrl)
+    sanitizedUrl = sanitize(originalUrl)
+    return checkForProtocol(sanitizedUrl)
 
 
-def checkForProtocol(originalUrl):
-    if ('http://' in originalUrl) or ('https://' in originalUrl):
-        return originalUrl
-    return 'http://' + originalUrl
+def checkForProtocol(sanitizedUrl):
+    if ('http://' in sanitizedUrl) or ('https://' in sanitizedUrl):
+        return sanitizedUrl
+    return 'http://' + sanitizedUrl
+
+
+def sanitize(originalUrl):
+    return quote(originalUrl, safe = '/:?&')
