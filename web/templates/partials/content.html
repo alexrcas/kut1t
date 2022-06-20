@@ -1,0 +1,60 @@
+<div id="app" class="container mt-2 d-flex align-items-center flex-column" v-cloak>
+
+    <div class="d-flex justify-content-center">
+        <h2 class="d-flex justify-content-center text-light">Kut.it!</h2>
+    </div>
+
+    <div class="row d-flex justify-content-center w-75">
+
+        <div class="row mt-4 d-flex justify-content-center">
+
+            <textarea class="form-control" rows="4" placeholder="Your URL here..." v-model="url" @keyup="enableButton()" :disabled="textareaDisabled"></textarea>
+            <button id="btn-short" class="btn btn-success w-25 mt-2" :disabled="url === '' || !buttonEnabled" @click="short()">
+                Get Short Link <i class="fa-solid fa-scissors ms-2"></i>
+            </button>
+
+        </div>
+
+        <div class="row d-flex justify-content-center" v-cloak v-if="shortUrl !== '' && !isWaiting">
+
+                <div class="row mt-4 d-flex justify-content-center w-75">
+
+                    <div class="d-flex justify-content-center flex-row" v-if="!error">
+
+                        <p class="d-flex justify-content-center alert alert-light d-inline-flex me-2 col-11">
+                            <span class="fw-bold me-2">Your link:</span> [[ shortUrl ]]
+                        </p>
+
+                        <p id="copy-tooltip" class="d-flex justify-content-center d-inline-flex col-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Copied to clipboard">
+                            <button class="btn btn-primary" @click="copyToClipboard()" style="width: 100%;">
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+                        </p>
+
+                    </div>
+
+                    <div class="d-flex justify-content-center flex-row" v-if="error">
+                        <p class="d-flex justify-content-center alert alert-danger d-inline-flex me-2 col-11" v-if="error">
+                            <span class="fw-bold me-2">Oops! Something went wrong</span>
+                        </p>
+                    </div>
+
+                </div>
+        </div>
+
+        <div class="row d-flex justify-content-center" v-cloak v-if="isWaiting">
+            <div class="row mt-4 d-flex justify-content-center w-75">
+                <div class="row d-flex justify-content-center">
+                    <p class="d-flex justify-content-center text-light">
+                        Please wait...
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+
+</div>
