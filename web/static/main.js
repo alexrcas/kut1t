@@ -13,7 +13,8 @@ compilerOptions: {
       shortUrl: '',
       buttonEnabled: true,
       textareaDisabled: false,
-      isWaiting: false
+      isWaiting: false,
+      error: false
     }
   },
 
@@ -24,6 +25,8 @@ compilerOptions: {
         this.buttonEnabled = false;
         this.textareaDisabled = true;
         this.isWaiting = true;
+        this.error = false;
+        try {
         const response = await fetch('/short', {
             method: 'POST',
             headers: {
@@ -35,12 +38,17 @@ compilerOptions: {
             })
         })
 
-        try {
+        if (response.status >= 400) {
+          this.error = true;
+        }
+
         const data = await response.json()
         this.shortUrl = data.url
-        } catch(err) {
-          console.err(err)
-        }
+
+      } catch(err) {
+        console.log('errorrrr!')
+      }
+
         this.textareaDisabled = false;
         this.isWaiting = false;
     },
