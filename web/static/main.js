@@ -40,10 +40,12 @@ compilerOptions: {
 
         if (response.status >= 400) {
           this.error = true;
+          this.shortUrl = null
+        } else {
+          const data = await response.json()
+          this.shortUrl = data.url
+          this.persistInLocalStorage(data)
         }
-
-        const data = await response.json()
-        this.shortUrl = data.url
 
         this.textareaDisabled = false;
         this.isWaiting = false;
@@ -62,6 +64,10 @@ compilerOptions: {
 
     enableButton() {
       this.buttonEnabled = true;
+    },
+
+    persistInLocalStorage(data) {
+      console.log('persist', data)
     }
 
   }
