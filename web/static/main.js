@@ -71,6 +71,10 @@ compilerOptions: {
     save(kut) {
       const data = window.localStorage.getItem('kuts');
       const kuts = data ? JSON.parse(data) : []
+
+      if (kuts.length > 4) {
+        kuts.pop()
+      }
       window.localStorage.setItem('kuts', JSON.stringify([kut, ...kuts]))
     },
 
