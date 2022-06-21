@@ -15,7 +15,8 @@ compilerOptions: {
       buttonEnabled: true,
       textareaDisabled: false,
       isWaiting: false,
-      error: false
+      error: false,
+      kuts: []
     }
   },
 
@@ -44,7 +45,8 @@ compilerOptions: {
         } else {
           const data = await response.json()
           this.shortUrl = data.url
-          this.persistInLocalStorage(data)
+          this.save(data)
+          this.kuts = this.load()
         }
 
         this.textareaDisabled = false;
@@ -66,9 +68,22 @@ compilerOptions: {
       this.buttonEnabled = true;
     },
 
-    persistInLocalStorage(data) {
-      console.log('persist', data)
+    save(kut) {
+      const data = window.localStorage.getItem('kuts');
+      const kuts = data ? JSON.parse(data) : []
+      window.localStorage.setItem('kuts', JSON.stringify([kut, ...kuts]))
+    },
+
+    load() {
+      const data = window.localStorage.getItem('kuts');
+      return data ? JSON.parse(data) : []
     }
 
+  },
+
+  mounted() {
+    this.kuts = this.load();
   }
+
+
 }).mount('#app')

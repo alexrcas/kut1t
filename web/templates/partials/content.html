@@ -60,16 +60,16 @@
     </div>
 
     <div class="container d-flex justify-content-center mt-4 flex-column text-secondary" v-cloak>
-        <div class="row">
+        <div class="row mb-2">
             <h6 class="d-flex justify-content-center mt-4"><i class="fa-solid fa-clock-rotate-left fa-2x"></i></h6>
         </div>
 
-        <div class="row mt-2">
+        <div class="row" v-for="kut in kuts">
             <div class="col-6 d-flex justify-content-end">
-                https://kut.it/QV
+                [[kut.url]]
             </div>
             <div class="col-6 d-flex justify-content-start">
-                https://youtube.es
+                [[kut.originalUrl]]
             </div>
         </div>
     </div>
