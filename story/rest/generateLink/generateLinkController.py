@@ -6,6 +6,7 @@ from service.linkService import getShortLink
 generateLinkController = Blueprint('generateLinkController', __name__)
 @generateLinkController.route('/short', methods = ['POST'])
 def generateLink():
+    print('#GenerateLinkController: ' + request.get_json()['url'])
     url = request.get_json()['url']
 
     if url is None:
