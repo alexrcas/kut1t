@@ -64,6 +64,17 @@ compilerOptions: {
       notification.success('Copied to Clipboard!')
     },
 
+    copyHistory(url) {
+      navigator.clipboard.writeText(url);
+      const notification = new Notyf({
+        position: {
+          x: 'center',
+          y: 'bottom'
+        }
+      });
+      notification.success('Copied to Clipboard!')
+    },
+
     enableButton() {
       this.buttonEnabled = true;
     },

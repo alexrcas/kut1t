@@ -65,11 +65,11 @@
         </div>
 
         <div class="row" v-for="kut in kuts">
-            <div class="col-6 d-flex justify-content-end">
-                [[kut.url]]
+            <div class="col-6 d-flex justify-content-end hoverable" @click="copyHistory(kut.url)">
+                <span class="hoverable">[[kut.url]]</span>
             </div>
-            <div class="col-6 d-flex justify-content-start">
-                [[kut.originalUrl]]
+            <div class="col-6 d-flex justify-content-start hoverable" @click="copyHistory(kut.originalUrl)">
+                <span class="hoverable">[[kut.originalUrl]]</span>
             </div>
         </div>
     </div>
