@@ -20,15 +20,15 @@
 
             <div class="row d-flex justify-content-center" v-cloak v-if="shortUrl !== '' && !isWaiting">
 
-                    <div class="row mt-4 d-flex justify-content-center w-75">
+                    <div class="row mt-4 d-flex justify-content-center w-75 link-row">
 
-                        <div class="d-flex justify-content-center flex-row" v-if="!error">
+                        <div class="d-flex justify-content-center flex-row link-panel" v-if="!error">
 
-                            <p class="d-flex justify-content-center alert alert-light d-inline-flex me-2 col-11">
-                                <span class="fw-bold me-2">Your link:</span> [[ shortUrl ]]
+                            <p class="d-flex justify-content-center alert alert-light d-inline-flex me-2 col-l-11">
+                                <span class="fw-bold me-2 your-link-text">Your link:</span> [[ shortUrl ]]
                             </p>
 
-                            <p id="copy-tooltip" class="d-flex justify-content-center d-inline-flex col-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Copied to clipboard">
+                            <p id="copy-tooltip" class="d-flex justify-content-center d-inline-flex col-l-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Copied to clipboard">
                                 <button class="btn btn-primary" @click="copyToClipboard()" style="width: 100%;">
                                     <i class="fa-solid fa-copy"></i>
                                 </button>
@@ -59,7 +59,7 @@
 
     </div>
 
-    <div class="container d-flex justify-content-center mt-4 flex-column text-secondary" v-cloak v-if="kuts.length > 0">
+    <div class="container d-flex justify-content-center mt-4 flex-column text-secondary history" v-cloak v-if="kuts.length > 0">
         <div class="row mb-2">
             <h6 class="d-flex justify-content-center mt-4"><i class="fa-solid fa-clock-rotate-left fa-2x"></i></h6>
         </div>
