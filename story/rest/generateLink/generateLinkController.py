@@ -15,4 +15,4 @@ def generateLink():
         return {}, 400
 
     shortUrl = getShortLink(url)
-    return { 'url': f'http://localhost:5000/{shortUrl}', 'originalUrl': url }, 201
+    return { 'url': f'https://kut1t.herokuapp.com/{shortUrl}', 'originalUrl': url }, 201
